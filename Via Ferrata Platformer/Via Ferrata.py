@@ -1,8 +1,7 @@
 import pygame
 import sys
 import time
-import random
-import os  # Added for file path handling
+import os
 
 # Initialize Pygame
 pygame.init()
@@ -23,27 +22,10 @@ GOLD = (255, 215, 0)  # Color for winning platform
 # Game constants (fixed value will not change)
 GROUND_HEIGHT = 550
 STARTING_POS = [100, 450]
-PLATFORM_BUFFER = 15  # Forgiving landing zone
-BOUNCE_THRESHOLD = 20  # Speed that triggers bounce
-BOUNCE_FACTOR = 0.3   # How much bounce (0-1)
-LANDING_PARTICLES = []  # Store landing effect particles
 
 #camera variables
 camera_x = 0
 camera_y = 0
-
-def create_landing_effect(x, y):
-    particles = []
-    for _ in range(5):
-        particles.append({
-            'x': x,
-            'y': y,
-            'dx': random.uniform(-2, 2),
-            'dy': random.uniform(-4, 0),
-            'lifetime': 10,
-            'color': WHITE
-        })
-    return particles
 
 def reset_player():
     return {
