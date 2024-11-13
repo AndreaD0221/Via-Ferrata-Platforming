@@ -37,6 +37,13 @@ def reset_player():
         'is_climbing': False
     }
 
+def reset_game():
+    global player, camera_x, camera_y
+    show_message("Game Over!", 2)
+    player = reset_player()
+    camera_x = 0
+    camera_y = 0
+
 player = reset_player()
 gravity = 0.5
 jump_strength = 15
@@ -113,7 +120,6 @@ ladders = [
     pygame.Rect(220, -1300, 20, 200),
 ]
 
-
 def show_message(text, duration=2):
     font = pygame.font.Font(None, 74)
     text_surface = font.render(text, True, WHITE)
@@ -128,7 +134,6 @@ def show_message(text, duration=2):
     screen.blit(text_surface, text_rect)
     pygame.display.flip()
     time.sleep(duration)
-
 
 # Game loop
 clock = pygame.time.Clock()
